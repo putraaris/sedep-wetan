@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1B7A4B">
+<title>Sedep Wetan — Rasa Rumahan, Bikin Kangen</title>
+<link rel="icon" href="logo.jpg">
+<link rel="stylesheet" href="sw.css">
+<link rel="stylesheet" href="sw2.css">
+</head>
+<body>
+
+<!-- ===== LOADING SCREEN ===== -->
+<div id="loading">
+  <div class="ldbox">
+    <div class="logo lg"><img src="logo.jpg" alt="Logo Sedep Wetan"></div>
+    <h2>sedep wetan</h2>
+    <p>Rasa rumahan, bikin kangen</p>
+    <div class="ldbar"><i></i></div>
+    <div class="lddots" id="ldmsg">Menyiapkan dapur...</div>
+  </div>
+</div>
+
+<!-- ===== TOPBAR ===== -->
+<header class="top">
+  <div class="wrap topin">
+    <button class="brand" onclick="go('home')" aria-label="Beranda Sedep Wetan">
+      <span class="logo"><img src="logo.jpg" alt="Logo Sedep Wetan"></span>
+      <span class="brandtxt"><b>sedep wetan</b><small>Rasa rumahan, bikin kangen</small></span>
+    </button>
+    <nav class="nav" id="nav">
+      <button class="on" data-v="home">Beranda</button>
+      <button data-v="menu">Menu</button>
+      <button data-v="orders">Pesanan</button>
+      <button data-v="about">Tentang</button>
+      <button data-v="admin" id="navAdmin" style="display:none">Admin</button>
+    </nav>
+    <div class="topact">
+      <span class="loc">📍 Manado</span>
+      <button class="cartbtn" onclick="openCart()">🛍 Keranjang <span class="cbadge" id="cbadge">0</span></button>
+      <span id="authzone"></span>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ===== HOME ===== -->
+<section class="view on" id="v-home">
+  <div class="wrap page">
+    <div id="hero"></div>
+    <div class="sec-h"><div><span class="eyebrow">✦ Promo hari ini</span><h2>Ambil diskonnya sebelum habis</h2></div>
+      <button class="btn btn-o btn-s" onclick="go('menu')">Lihat semua menu →</button></div>
+    <div class="promos" id="promos"></div>
+    <div class="sec-h"><div><span class="eyebrow">🔥 Paling dicari</span><h2>Menu favorit pelanggan</h2><p>Dibuat segar tiap hari, resep warisan dapur Wetan.</p></div>
+      <span class="count" id="favCount"></span></div>
+    <div class="rail" id="favs"></div>
+    <div class="sec-h"><div><span class="eyebrow">🍽️ Lengkap</span><h2>Jelajahi menu kami</h2><p>Cari, saring, dan intip detail sebelum memesan.</p></div></div>
+    <div class="grid" id="homeGrid"></div>
+    <div id="homeVals" style="margin-top:36px"></div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="view" id="v-menu">
+  <div class="wrap page">
+    <div class="ph"><span class="eyebrow">🍲 Daftar menu</span><h1>Pilih yang paling sedep buatmu</h1>
+      <p>Bebas lihat-lihat dulu, kok. Login hanya diperlukan saat mau memesan.</p></div>
+    <div class="toolbar">
+      <label class="srch">🔍<input id="q" placeholder="Cari menu favoritmu..." autocomplete="off"></label>
+      <select class="sel" id="sortSel">
+        <option value="pop">Urutkan: Terpopuler</option>
+        <option value="lo">Harga terendah</option>
+        <option value="hi">Harga tertinggi</option>
+        <option value="az">Nama A–Z</option>
+        <option value="rate">Rating tertinggi</option>
+      </select>
+    </div>
+    <div class="cats" id="cats"></div>
+    <div class="sec-h" style="margin-top:6px"><h2 id="mTitle" style="font-size:18px">Semua menu</h2><span class="count" id="mCount"></span></div>
+    <div class="grid" id="mGrid"></div>
+  </div>
+</section>
+
+<!-- ===== AUTH ===== -->
+<section class="view" id="v-auth"><div id="authWrap"></div></section>
+
+<!-- ===== CART / CHECKOUT ===== -->
+<section class="view" id="v-checkout">
+  <div class="wrap page">
+    <div class="ph"><span class="eyebrow">🧾 Langkah terakhir</span><h1>Keranjang &amp; checkout</h1>
+      <p>Tinjau pesanan, pilih pembayaran, lalu kirim ke dapur.</p></div>
+    <div class="checkout" id="checkoutBody"></div>
+  </div>
+</section>
+
+<!-- ===== PAYMENT METHOD ===== -->
+<section class="view" id="v-payment">
+  <div class="wrap page">
+    <div class="ph"><button class="btn btn-o btn-s" onclick="go('checkout')" style="margin-bottom:14px">← Kembali ke keranjang</button>
+      <span class="eyebrow">💳 Pembayaran</span><h1>Bayar lalu unggah bukti</h1>
+      <p>Transfer sesuai nominal persis, unggah bukti, dan admin dapur memverifikasi sebelum pesanan dimasak.</p></div>
+    <div id="payBody"></div>
+  </div>
+</section>
+
+<!-- ===== ORDER STATUS + HISTORY ===== -->
+<section class="view" id="v-orders">
+  <div class="wrap page">
+    <div class="ph"><span class="eyebrow">◷ Lacak &amp; riwayat</span><h1>Pesanan saya</h1>
+      <p>Pantau status pesanan berjalan dan telusuri pembelian sebelumnya.</p></div>
+    <div id="ordersBody"></div>
+  </div>
+</section>
+
+<!-- ===== PROFILE ===== -->
+<section class="view" id="v-profile">
+  <div class="wrap page"><div id="profileBody"></div></div>
+</section>
+
+<!-- ===== ABOUT & CONTACT ===== -->
+<section class="view" id="v-about">
+  <div class="wrap page"><div id="aboutBody"></div></div>
+</section>
+
+<!-- ===== ADMIN ===== -->
+<section class="view" id="v-admin">
+  <div class="wrap page"><div id="adminBody"></div></div>
+</section>
+</main>
+
+<footer class="foot" id="foot"></footer>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="modal"><div class="mbd" onclick="closeModal()"></div><div class="mbox" id="modalBox"></div></div>
+<div id="toast"></div>
+
+<nav class="mobnav" id="mobnav">
+  <button class="on" data-v="home"><i>⌂</i>Beranda</button>
+  <button data-v="menu"><i>🍽</i>Menu</button>
+  <button data-v="checkout"><i>🛍</i>Keranjang</button>
+  <button data-v="orders"><i>◷</i>Pesanan</button>
+  <button data-v="profile"><i>☺</i>Profil</button>
+</nav>
+
+<script src="sw.js"></script>
+<script src="sw2.js"></script>
+</body>
+</html>

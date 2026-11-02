@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Logo Sedep Wetan">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2FA36B"/>
+      <stop offset="1" stop-color="#14532D"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="url(#g1)"/>
+  <circle cx="64" cy="64" r="47" fill="#F2FBF5" opacity=".1" stroke="#B7E4C7" stroke-opacity=".35" stroke-width="2"/>
+  <g fill="none" stroke="#EAF7EF" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 71h68"/>
+    <path d="M37 71c0 16 12 26 27 26s27-10 27-26"/>
+    <path d="M37 85c9 7 18 9 27 9s18-2 27-9"/>
+    <path d="M53 54c-8-1-13-7-13-15 8 0 14 5 15 13"/>
+    <path d="M75 54c8-1 13-7 13-15-8 0-14 5-15 13"/>
+    <path d="M64 57c-4-6-3-13 0-18 3 5 4 12 0 18z"/>
+    <path d="M20 62c-4 4-4 10 0 14M108 62c4 4 4 10 0 14"/>
+  </g>
+</svg>
