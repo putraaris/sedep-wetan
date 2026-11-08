@@ -1,0 +1,39 @@
+{
+  "format": "sibercraft-session",
+  "version": 2,
+  "exportedAt": "2026-11-02T04:58:38.329Z",
+  "session": {
+    "name": "sedep wetan",
+    "template": "blank",
+    "model": "deepseek-v4-flash",
+    "frames": [
+      {
+        "id": "7f1517ec-815f-4e1a-9c29-7c9ee7fb808a",
+        "file": "sedep-wetan.html",
+        "device": "desktop",
+        "x": 0,
+        "y": 0,
+        "createdAt": "2026-11-02T01:58:53.690Z"
+      }
+    ],
+    "contextSummary": {
+      "text": "**Project: \"Sedep Wetan\" web app prototype**\n\n**Evolution:**\n1. Initially built with green theme (loading, menu, checkout, history).\n2. User provided detailed UI/UX brief → rebuilt with orange/brick/cream/brown palette, 10 pages (loading, home, menu, detail product, login/register, cart/checkout, payment, order status/history, profile, about/contact, admin dashboard), login gate for cart actions, dummy data.\n3. User uploaded logo image → requested green theme matching logo, Supabase template files, and admin dashboard access restricted to admin role only.\n\n**Current state (completed & verified):**\n- **Theme:** Green (primary `#1B7A4B`, dark `#125734`, mint accent `#5BBF7F`, cream-green bg `#F1F7F2`). All gradients, promos, QR panel, footer, toast updated to green.\n- **Logo:** User's uploaded `logo.jpg` used in favicon, loading, header, login, footer. Alternative `logo.svg` (green bowl+leaf) also created.\n- **Admin guard:** Nav \"Admin\" button hidden for non-admins. Router rejects admin access with redirect to login; post-login non-admins see \"Area terbatas\" page. Final defensive guard in `renderAdmin()`. Badge \"ADMIN\" shown in header. Profile page has \"Buka dashboard admin\" link only for admins. Demo accounts: `demo@sedepwetan.id/demo123` (customer), `admin@sedepwetan.id/admin123` (admin).\n- **Supabase templates** (folder `supabase/`): `schema.sql` (tables, RLS by role, triggers, views, seed, storage bucket), `client.js` (SDK init, auth helpers), `queries.js` (CRUD menu, orders with server-side pricing, realtime tracking, reports), `README.md` (activation steps).\n\n**Files in workspace:**\n- `sedep-wetan.html` — 10-page container structure\n- `sw.css` — base theme/styles (green tokens)\n- `sw2.css` — detail product, auth, checkout, profile, about, admin, responsive styles\n- `sw.js` — data (18 menu items as arrays), state, router, auth logic, admin guard, localStorage migration (`sw-v2`)\n- `sw2.js` — page renderers (checkout, payment, orders, profile, about, admin dashboard, footer, boot)\n- `logo.svg` — alternative green logo\n- `supabase/schema.sql`, `supabase/client.js`, `supabase/queries.js`, `supabase/README.md`\n\n**Frame ID:** `7f1517ec-815f-4e1a-9c29-7c9ee7fb808a` (desktop, active on canvas)\n\n**Syntax:** All 7 files pass check_code verification.\n\n**Key decisions/rules:**\n- Visitors can browse menu/details freely; adding to cart or checkout triggers login modal/redirect, then returns to original action.\n- Free shipping above Rp75,000; otherwise Rp8,000.\n- Payment methods: QRIS, Transfer Bank, VA, E-wallet, Kartu, COD.\n- Vouchers: SEDAP20, ONGKIRGRATIS, JUMATSEDAP, NGEMIL10.\n- Supabase integration deferred to next development phase (templates only, no actual connection).",
+      "upToIndex": 252,
+      "updatedAt": "2026-11-02T04:36:23.022Z"
+    },
+    "usage": {
+      "last": {
+        "promptTokens": 113395,
+        "completionTokens": 830,
+        "contextSize": 113395,
+        "contextSizeEstimated": false
+      },
+      "total": {
+        "promptTokens": 11831072,
+        "completionTokens": 187103
+      }
+    },
+    "lastPrompt": "lanjutkan",
+    "createdAt": "2026-11-02T00:45:05.572Z"
+  }
+}
